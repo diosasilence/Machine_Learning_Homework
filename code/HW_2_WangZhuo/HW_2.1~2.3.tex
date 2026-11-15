@@ -1,0 +1,50 @@
+\documentclass{article}
+
+\usepackage[authoryear]{natbib}
+\usepackage{url}
+\usepackage{amsmath,amssymb}
+
+\title{Assignment 3}
+\author{Wang Zhuo}
+\date{2026.10.08}
+
+\begin{document}
+\maketitle
+
+\section{3.1}
+
+Let 
+\[y_i=\frac{\exp(z_i)}{\sum^C_{k=1}\exp(z_k)}.\]
+Then
+\[\frac{\partial y_i}{\partial z_j}=\delta_{ij}y_i-y_i y_j,\quad \frac{\partial \mathbf{y}}{\partial \mathbf{z}}=\text{diag}(\mathbf{y})-\mathbf{y}\mathbf{y}^\top.\]
+So
+\[\frac{\partial \mathcal{L}(W)}{\partial W}=-\frac{1}{N}\sum^N_{i=1}(\frac{t^{(n)}}{\hat{t}^{(n)}})^\top(\text{diag}(\hat{t}^{(n)})-\hat{t}^{(n)}(\hat{t}^{(n)})^\top)(\frac{\partial \mathbf{z}}{\partial W})=-\frac{1}{N}\sum^N_{i=1}x^{(n)}(t^{(n)}-\hat{t}^{(n)})^\top.\]
+
+\section{3.2}
+
+We can notice that $\mathbf{w}^\top\mathbf{x}+b=\langle \mathbf{w},\mathbf{x}+\frac{b}{\langle\mathbf{w},\mathbf{w}\rangle}\mathbf{w}\rangle$ and $-\frac{b}{\langle\mathbf{w},\mathbf{w}\rangle}\mathbf{w}$ is an orthogonal vector on the plane $\mathbf{w}^\top\mathbf{x}+b=0$. 
+
+For arbitrary vector $\mathbf{x}$, its distance from the plane is equal to 
+\[|\langle \frac{\mathbf{w}}{||\mathbf{w}||},\mathbf{x}+\frac{b}{\langle\mathbf{w},\mathbf{w}\rangle}\mathbf{w}\rangle|=\frac{|\mathbf{w}^\top\mathbf{x}+b|}{||\mathbf{w}||}.\]
+
+For given Training Set $\{x_i,y_i\}_{(n)}$
+Soft Margin SVM Model:
+\[
+\min_{w,b}\ \frac{1}{2}\|w\|^2+C\sum_{i=1}^{n}\max\{0,1-y_i(w^\top x_i+b)\}.
+\]
+Hinge loss function:
+\[
+\ell_{\mathrm{hinge}}(z)=\max\{0,1-z\},\qquad z=y_i(w^\top x_i+b).
+\]
+
+\section{3.3}
+
+Let $b=w_{d+1},x^{(n)}_{d+1}=1.$
+
+\[\frac{\partial^2\mathcal{L}}{\partial w_i\partial w_j}=\frac{1}{N}\sum^N_{n=1}\frac{\exp(-a^{(n)})}{(1+\exp(-a^{(n)}))^2}x^{(n)}_ix^{(n)}_j,a^{(n)}=w^\top x^{(n)}+b.\]
+\[H=\frac{1}{N}\sum^N _{n=1}\frac{\exp(-a^{(n)})}{(1+\exp(-a^{(n)}))^2}x^{(n)}(x^{(n)})^{\top}\succeq0 .\]
+
+\end{document}
+
+
+

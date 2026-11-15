@@ -1,0 +1,55 @@
+\documentclass{article}
+
+\usepackage[authoryear]{natbib}
+\usepackage{url}
+\usepackage{amsmath,amssymb}
+
+\title{Assignment 3}
+\author{Wang Zhuo}
+\date{2026.10.08}
+
+\begin{document}
+\maketitle
+
+\section{3.1}
+
+Let $A=(a_{ij}), A^*=(A_{ij})$.
+
+(1)
+
+\[
+\begin{aligned}
+    |A|=&\sum^n_{i=1}A_{ji}a_{ij}\\
+    d(|A|)=&\sum^n_{i=1}A_{ji}d(a_{ij})\\
+    \frac{\partial |A|}{\partial a_{ij}}=&A_{ji}\\
+    \frac{\partial |A|}{\partial A}=&(A^*)^\top
+\end{aligned}
+\]
+
+(2)
+
+Since
+
+\[
+\begin{aligned}
+    A A^{-1}=&I\\
+    d(A)A^{-1}+Ad(A^{-1})=&0\\
+    d(A^{-1})=&-A^{-1}d(A)A^{-1}
+\end{aligned}
+\]
+
+Then
+
+\[
+d(x^\top A^{-1}x)=-x^\top A^{-1}d(A)A^{-1}x=-\text{tr}(A^{-1}xx^\top A^{-1}d(A))\\
+\frac{\partial (x^\top A^{-1}x)}{\partial A}=-A^{-\top}xx^\top A^{-\top}=-(A^{-\top}x)(A^{-1}x)^\top
+\]
+
+
+\section{3.2}
+
+
+\end{document}
+
+
+
